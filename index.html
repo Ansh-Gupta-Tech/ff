@@ -2,7 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Pop-up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #ccc;
+            z-index: 1000;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        #music-player {
+            position: fixed;
+            top: 10px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001; /* Make sure it's above the popup */
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="overlay"></div>
+    <div id="popup">
+        <p>Do you want to play music?</p>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+
+    <div id="music-player">
+        <audio id="background-music" src="hbd.mp3" loop controls></audio>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        };
+
+        document.getElementById('yes').onclick = function() {
+            playMusic();
+            closePopup();
+        };
+
+        document.getElementById('no').onclick = function() {
+            playMusic();
+            closePopup();
+        };
+
+        function playMusic() {
+            const music = document.getElementById('background-music');
+            music.play().catch(function(error) {
+                console.log('Error playing music:', error);
+            });
+        }
+
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+
     <title>Wanna Be Yours🥹</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> <!-- Custom Fonts -->
     <style>
@@ -146,7 +228,7 @@
             .link {
                 font-size: 1em; /* Responsive button size */
             }
-        }
+           
     </style>
 </head>
 <body>
@@ -157,9 +239,5 @@
         <p class="proposal">In a world full of infinite possibilities, you are my favorite constant. Just as every great program needs a solid foundation, my heart found its home with you. Your smile brightens my darkest days, and your laughter is the sweetest melody that fills my soul. Every moment spent with you feels like magic, where time stands still and everything else fades away. I want to be by your side through all of life’s adventures, from the mundane to the extraordinary. Just like how a beautiful story unfolds, I dream of writing our own together—filled with laughter, love, and countless memories. You inspire me to be the best version of myself, and I can’t imagine my life without you. I want to be the one who supports your dreams, shares your joys, and stands by you during the tough times. With you, I feel like I can conquer anything. So, from the bottom of my heart, I want to say: Just wanna be yours. Let’s embark on this journey together and create a love story that’s uniquely ours. You truly make my heart feel complete! ❤️</p>
  <a <button  href="https://ansh-gupta-tech.github.io/Confession/">Click Here For Surprise!🎁</button> </a> 
     </div>
-    <audio controls autoplay loop>
-      <source src="hbd.mp3" type="audio/mpeg">
-    </audio>
-
 </body>
 </html>
